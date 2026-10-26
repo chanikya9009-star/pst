@@ -1,0 +1,34 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+
+        int[][] arr = new int[n][n];
+
+        // Read the matrix
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                arr[i][j] = sc.nextInt();
+            }
+        }
+
+        int leftDiagonal = 0;
+        int rightDiagonal = 0;
+
+        // Calculate diagonal sums
+        for (int i = 0; i < n; i++) {
+            leftDiagonal += arr[i][i];
+            rightDiagonal += arr[i][n - 1 - i];
+        }
+
+        // Calculate absolute difference
+        int difference = Math.abs(leftDiagonal - rightDiagonal);
+
+        System.out.println(difference);
+
+        sc.close();
+    }
+}
